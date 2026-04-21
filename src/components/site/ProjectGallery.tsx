@@ -29,7 +29,7 @@ const projects: Project[] = [
   { crewLead: "Lyth Construction", title: "Full Bathroom Renovation — Keizer", media: { type: "video", src: "/videos/bathroom-renovation.mp4" }, avatar: AVATAR_LYTH, orientation: "portrait" },
   { crewLead: "Dave T.", title: "Commercial Tenant Buildout — Downtown Salem", media: { type: "image", src: "/images/commercial-tenant-buildout.jpg" }, avatar: AVATAR_DAVE, orientation: "landscape" },
   { crewLead: "Mike R.", title: "New Build Framing — Turner", media: { type: "image", src: "/images/new-build-framing-turner.jpg" }, avatar: AVATAR_MIKE, orientation: "landscape" },
-  { crewLead: "Lyth Construction", title: "Deck & Outdoor Living Space", media: { type: "image", src: img("photo-1591474200742-8e512e6f98f8") }, avatar: AVATAR_LYTH, orientation: "landscape" },
+  { crewLead: "Lyth Construction", title: "Deck & Outdoor Living Space", media: { type: "image", src: "/images/deck-outdoor-living.jpg" }, avatar: AVATAR_LYTH, orientation: "landscape" },
   { crewLead: "Carlos M.", title: "Basement Finish — South Salem", media: { type: "image", src: img("photo-1600585154340-be6161a56a0c") }, avatar: AVATAR_CARLOS, orientation: "landscape" },
   { crewLead: "Dave T.", title: "Roof Replacement — 3,200 sqft", media: { type: "video", src: "/videos/roof-replacement.mp4" }, avatar: AVATAR_DAVE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Custom Garage Build — Canby", media: { type: "image", src: img("photo-1558036117-15d82a90b9b1") }, avatar: AVATAR_LYTH, orientation: "landscape" },
