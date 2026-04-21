@@ -1,34 +1,44 @@
 
 
-# Expand Gallery to 24 Projects + Click-to-Expand Lightbox + Mixed Aspect Ratios
+# Add Videos to the Project Gallery
+
+Right now `ProjectGallery` only renders `<img>` tags. To support video clips alongside photos, we'll extend the data shape and render the right element per item — the masonry layout, click-to-expand lightbox, and mixed aspect ratios all keep working.
 
 ## What changes
 
-1. **Grow the gallery from 8 → 24 projects.** Mix of crew leads (Mike R., Lyth Construction, Dave T., Carlos M.) across kitchens, bathrooms, decks, roofs, framing, additions, ADUs, siding, dry rot repair, etc. Same Unsplash placeholder pattern so real photos drop in cleanly later.
-2. **Mixed aspect ratios.** Every card is forced to either 16:9 landscape or 9:16 portrait, distributed across the 24 cards so the masonry columns stagger naturally (roughly half landscape, half portrait, scattered — not alternating). Uses Radix `AspectRatio` to lock the frame so Unsplash photos crop cleanly to fit regardless of their native proportions.
-3. **Click-to-expand lightbox.** Tapping a card opens a full-screen modal showing the photo at its natural size (no cropping in the lightbox), with crew name and project title overlaid at the bottom.
-4. **Helper text under "Recent Projects"**: "Tap any photo to view it full size."
+1. **Data shape gains a `media` type.** Each entry in the `projects` array becomes either `{ type: "image", src }` or `{ type: "video", src, poster? }`. Existing image entries get auto-migrated.
+2. **Card thumbnails autoplay muted, looping, inline.** Videos in the grid behave like animated photos — silent, looping, no controls — so the gallery still feels like a photo wall, not a video player.
+3. **Lightbox plays the full video with controls.** When a video card is clicked, the Dialog renders a `<video controls autoPlay>` instead of an `<img>`. Audio plays here. Closing the lightbox stops playback.
+4. **A small play-icon badge** sits in the bottom-right of any video card so users know it's a clip before they tap.
 
-## How it works
+## Where videos come from
 
-- `Project` type gains an `orientation: "landscape" | "portrait"` field. Each of the 24 entries has a fixed orientation (predefined, scattered) — no runtime randomness, so layout is stable across reloads and SSR-safe.
-- `ProjectCard`:
-  - Wrapper becomes a `<button>` with `cursor-zoom-in`, keyboard focus ring, and `onClick` prop.
-  - Image is wrapped in `<AspectRatio ratio={16/9}>` or `<AspectRatio ratio={9/16}>` based on orientation, with `object-cover` so the photo fills the locked frame.
-  - Existing fade-in-up animation, gradient overlay, and hover scale stay the same.
-- `ProjectGallery`:
-  - Holds `active: Project | null` state.
-  - Renders the existing CSS `column-count` masonry (1 / 2 / 3 / 4 cols). Mixed aspect ratios make columns stagger naturally.
-  - Lightbox uses shadcn `Dialog`: dark transparent background, image rendered with `object-contain` and `max-h-[85vh]` (no crop in lightbox — full photo always visible), bottom gradient strip shows crew avatar + name + title. Escape-to-close and X button come free from Radix.
-- Accessibility: `DialogTitle` / `DialogDescription` visually hidden but present; cards have `aria-label="View [title] full size"`.
+Two supported sources, both via plain URLs in the data array:
+
+- **Hosted MP4/WebM** (recommended): drop files into `public/videos/` and reference with `staticFile("videos/clip-1.mp4")`. Works offline-friendly, no third party.
+- **External URL** (e.g. Cloudinary, Mux, S3, Vimeo direct file): paste the `.mp4` URL directly. YouTube/Vimeo embed pages don't work — must be a direct video file URL.
+
+For the first pass we'll wire **2–3 placeholder MP4 clips** from a free CDN (Google's sample videos / Pexels) into the existing 24-item array so you can see the behavior immediately, then swap in Carlos's real footage later by editing one line per item.
 
 ## Files
 
-- **Edit** `src/components/site/ProjectCard.tsx` — convert wrapper to `<button>`, accept `onClick`, wrap image in `AspectRatio` keyed off `project.orientation`.
-- **Edit** `src/components/site/ProjectGallery.tsx` — expand to 24 projects with assigned orientations, add `Dialog` lightbox, wire `onClick`. Bump image width to `w=1200` for sharper lightbox.
+- **Edit** `src/components/site/ProjectCard.tsx`
+  - Render `<video muted loop autoPlay playsInline preload="metadata">` when `project.media.type === "video"`, otherwise the existing `<img>`.
+  - Add a small play-icon pill (lucide `Play` icon) in the bottom-right corner for video items.
+- **Edit** `src/components/site/ProjectGallery.tsx`
+  - Update the `Project` type / data array so each item has a `media` discriminated union. Migrate all 24 existing entries to `media: { type: "image", src: ... }`.
+  - Replace ~3 entries with `media: { type: "video", src: "...", poster: "..." }` using sample construction clips.
+  - In the lightbox, branch on `active.media.type`: render `<img>` for photos (unchanged) or `<video controls autoPlay className="max-h-[85vh]">` for videos.
+
+## Performance notes
+
+- Grid videos use `preload="metadata"` so we don't download full files until hover/play — keeps the gallery light even with many clips.
+- `playsInline` prevents iOS Safari from forcing fullscreen on autoplay.
+- `muted` is required for autoplay to work in all browsers.
 
 ## Out of scope
 
-- No swipe / arrow-key navigation between photos in the lightbox (can add later).
-- No before/after pairs or per-project detail pages.
+- Uploading videos through a UI (you'd add files to `public/videos/` or paste URLs in code for now).
+- Video transcoding / thumbnail generation — provide a `poster` image URL per video, or we'll fall back to the first frame.
+- Lazy-mounting (only loading the `<video>` element when scrolled into view) — can add later if performance becomes an issue with 10+ video clips.
 
