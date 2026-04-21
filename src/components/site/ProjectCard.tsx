@@ -1,18 +1,21 @@
 import { useEffect, useRef, useState } from "react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export interface Project {
   crewLead: string;
   title: string;
   image: string;
   avatar: string;
+  orientation: "landscape" | "portrait";
 }
 
 interface ProjectCardProps {
   project: Project;
   index: number;
+  onClick?: () => void;
 }
 
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
+const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -36,25 +39,30 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
     return () => observer.disconnect();
   }, []);
 
+  const ratio = project.orientation === "landscape" ? 16 / 9 : 9 / 16;
+
   return (
     <div
       ref={ref}
       className="mb-4 break-inside-avoid"
       style={{ transitionDelay: `${(index % 4) * 60}ms` }}
     >
-      <div
-        className={`group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500 ease-out ${
+      <button
+        type="button"
+        onClick={onClick}
+        aria-label={`View ${project.title} full size`}
+        className={`group relative block w-full cursor-zoom-in overflow-hidden rounded-2xl text-left shadow-lg transition-all duration-500 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-burgundy focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink ${
           visible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         }`}
       >
-        <div className="overflow-hidden">
+        <AspectRatio ratio={ratio}>
           <img
             src={project.image}
             alt={project.title}
             loading="lazy"
-            className="block h-auto w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
-        </div>
+        </AspectRatio>
 
         {/* Gradient overlay */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-black/60 to-transparent" />
@@ -76,7 +84,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             {project.title}
           </h3>
         </div>
-      </div>
+      </button>
     </div>
   );
 };
