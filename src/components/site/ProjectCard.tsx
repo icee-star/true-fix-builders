@@ -62,7 +62,7 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
         }`}
       >
         <AspectRatio ratio={ratio}>
-          {isVideo ? (
+          {project.media.type === "video" ? (
             <video
               src={project.media.src}
               poster={project.media.poster}
