@@ -27,7 +27,7 @@ const VIDEO_CONSTRUCTION_3 =
 const projects: Project[] = [
   { crewLead: "Mike R.", title: "West Salem Kitchen Remodel", media: { type: "video", src: "/videos/west-salem-kitchen.mp4" }, avatar: AVATAR_MIKE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Full Bathroom Renovation — Keizer", media: { type: "video", src: "/videos/bathroom-renovation.mp4" }, avatar: AVATAR_LYTH, orientation: "portrait" },
-  { crewLead: "Dave T.", title: "Commercial Tenant Buildout — Downtown Salem", media: { type: "image", src: img("photo-1497366216548-37526070297c") }, avatar: AVATAR_DAVE, orientation: "landscape" },
+  { crewLead: "Dave T.", title: "Commercial Tenant Buildout — Downtown Salem", media: { type: "image", src: "/images/commercial-tenant-buildout.jpg" }, avatar: AVATAR_DAVE, orientation: "landscape" },
   { crewLead: "Mike R.", title: "New Build Framing — Turner", media: { type: "video", src: VIDEO_CONSTRUCTION_1, poster: img("photo-1503387762-592deb58ef4e") }, avatar: AVATAR_MIKE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Deck & Outdoor Living Space", media: { type: "image", src: img("photo-1591474200742-8e512e6f98f8") }, avatar: AVATAR_LYTH, orientation: "landscape" },
   { crewLead: "Carlos M.", title: "Basement Finish — South Salem", media: { type: "image", src: img("photo-1600585154340-be6161a56a0c") }, avatar: AVATAR_CARLOS, orientation: "landscape" },
