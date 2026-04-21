@@ -1,10 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import { Play } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+
+export type ProjectMedia =
+  | { type: "image"; src: string }
+  | { type: "video"; src: string; poster?: string };
 
 export interface Project {
   crewLead: string;
   title: string;
-  image: string;
+  media: ProjectMedia;
   avatar: string;
   orientation: "landscape" | "portrait";
 }
@@ -40,6 +45,7 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
   }, []);
 
   const ratio = project.orientation === "landscape" ? 16 / 9 : 9 / 16;
+  const isVideo = project.media.type === "video";
 
   return (
     <div
@@ -50,18 +56,31 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
       <button
         type="button"
         onClick={onClick}
-        aria-label={`View ${project.title} full size`}
+        aria-label={`View ${project.title} ${isVideo ? "video" : "full size"}`}
         className={`group relative block w-full cursor-zoom-in overflow-hidden rounded-2xl text-left shadow-lg transition-all duration-500 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-burgundy focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink ${
           visible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         }`}
       >
         <AspectRatio ratio={ratio}>
-          <img
-            src={project.image}
-            alt={project.title}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-          />
+          {isVideo ? (
+            <video
+              src={project.media.src}
+              poster={project.media.poster}
+              muted
+              loop
+              autoPlay
+              playsInline
+              preload="metadata"
+              className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+            />
+          ) : (
+            <img
+              src={project.media.src}
+              alt={project.title}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+            />
+          )}
         </AspectRatio>
 
         {/* Gradient overlay */}
@@ -84,6 +103,14 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
             {project.title}
           </h3>
         </div>
+
+        {/* Video badge */}
+        {isVideo && (
+          <div className="pointer-events-none absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-black/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+            <Play className="h-3 w-3 fill-current" />
+            <span>Video</span>
+          </div>
+        )}
       </button>
     </div>
   );
