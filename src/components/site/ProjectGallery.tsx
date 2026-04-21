@@ -31,7 +31,7 @@ const projects: Project[] = [
   { crewLead: "Mike R.", title: "New Build Framing — Turner", media: { type: "video", src: VIDEO_CONSTRUCTION_1, poster: img("photo-1503387762-592deb58ef4e") }, avatar: AVATAR_MIKE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Deck & Outdoor Living Space", media: { type: "image", src: img("photo-1591474200742-8e512e6f98f8") }, avatar: AVATAR_LYTH, orientation: "landscape" },
   { crewLead: "Carlos M.", title: "Basement Finish — South Salem", media: { type: "image", src: img("photo-1600585154340-be6161a56a0c") }, avatar: AVATAR_CARLOS, orientation: "landscape" },
-  { crewLead: "Dave T.", title: "Roof Replacement — 3,200 sqft", media: { type: "image", src: img("photo-1605276374104-dee2a0ed3cd6") }, avatar: AVATAR_DAVE, orientation: "portrait" },
+  { crewLead: "Dave T.", title: "Roof Replacement — 3,200 sqft", media: { type: "video", src: "/videos/roof-replacement.mp4" }, avatar: AVATAR_DAVE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Custom Garage Build — Canby", media: { type: "image", src: img("photo-1558036117-15d82a90b9b1") }, avatar: AVATAR_LYTH, orientation: "landscape" },
   { crewLead: "Carlos M.", title: "Exterior Siding Replacement — Salem", media: { type: "video", src: VIDEO_CONSTRUCTION_2, poster: img("photo-1572120360610-d971b9d7767c") }, avatar: AVATAR_CARLOS, orientation: "portrait" },
   { crewLead: "Mike R.", title: "Open-Concept Living Room — Sherwood", media: { type: "image", src: img("photo-1600210492486-724fe5c67fb0") }, avatar: AVATAR_MIKE, orientation: "landscape" },
