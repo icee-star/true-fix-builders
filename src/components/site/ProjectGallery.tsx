@@ -38,7 +38,7 @@ const projects: Project[] = [
   { crewLead: "Dave T.", title: "Front Porch Rebuild — Eugene", media: { type: "image", src: img("photo-1570129477492-45c003edd2be") }, avatar: AVATAR_DAVE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Master Suite Addition — Bend", media: { type: "image", src: img("photo-1505691938895-1758d7feb511") }, avatar: AVATAR_LYTH, orientation: "landscape" },
   { crewLead: "Carlos M.", title: "Dry Rot Repair — Lincoln City", media: { type: "image", src: img("photo-1581094288338-2314dddb7ece") }, avatar: AVATAR_CARLOS, orientation: "portrait" },
-  { crewLead: "Mike R.", title: "Modern Farmhouse Remodel — Dallas", media: { type: "image", src: img("photo-1600566753190-17f0baa2a6c3") }, avatar: AVATAR_MIKE, orientation: "landscape" },
+  { crewLead: "Mike R.", title: "Modern Farmhouse Remodel — Dallas", media: { type: "image", src: "/images/project-kitchen.jpg" }, avatar: AVATAR_MIKE, orientation: "landscape" },
   { crewLead: "Dave T.", title: "Window & Trim Replacement — Salem", media: { type: "image", src: img("photo-1600573472550-8090b5e0745e") }, avatar: AVATAR_DAVE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Custom Pergola & Patio Cover", media: { type: "video", src: VIDEO_CONSTRUCTION_3, poster: img("photo-1600607687939-ce8a6c25118c") }, avatar: AVATAR_LYTH, orientation: "landscape" },
   { crewLead: "Carlos M.", title: "Garage Conversion to ADU — Salem", media: { type: "image", src: img("photo-1600585154526-990dced4db0d") }, avatar: AVATAR_CARLOS, orientation: "portrait" },
