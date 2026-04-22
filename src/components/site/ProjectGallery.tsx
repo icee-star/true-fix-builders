@@ -34,7 +34,7 @@ const projects: Project[] = [
   { crewLead: "Dave T.", title: "Roof Replacement — 3,200 sqft", media: { type: "video", src: "/videos/roof-replacement.mp4" }, avatar: AVATAR_DAVE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Custom Garage Build — Canby", media: { type: "video", src: "/videos/custom-garage-build-canby.mov" }, avatar: AVATAR_LYTH, orientation: "portrait" },
   { crewLead: "Carlos M.", title: "Exterior Siding Replacement — Salem", media: { type: "video", src: VIDEO_CONSTRUCTION_2, poster: img("photo-1572120360610-d971b9d7767c") }, avatar: AVATAR_CARLOS, orientation: "portrait" },
-  { crewLead: "Mike R.", title: "Open-Concept Living Room — Sherwood", media: { type: "image", src: img("photo-1600210492486-724fe5c67fb0") }, avatar: AVATAR_MIKE, orientation: "landscape" },
+  { crewLead: "Mike R.", title: "Open-Concept Living Room — Sherwood", media: { type: "image", src: "/images/open-concept-living-sherwood.jpg" }, avatar: AVATAR_MIKE, orientation: "portrait" },
   { crewLead: "Dave T.", title: "Front Porch Rebuild — Eugene", media: { type: "image", src: img("photo-1570129477492-45c003edd2be") }, avatar: AVATAR_DAVE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Master Suite Addition — Bend", media: { type: "image", src: img("photo-1505691938895-1758d7feb511") }, avatar: AVATAR_LYTH, orientation: "landscape" },
   { crewLead: "Carlos M.", title: "Dry Rot Repair — Lincoln City", media: { type: "image", src: img("photo-1581094288338-2314dddb7ece") }, avatar: AVATAR_CARLOS, orientation: "portrait" },
