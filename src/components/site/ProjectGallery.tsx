@@ -44,7 +44,7 @@ const projects: Project[] = [
   { crewLead: "Carlos M.", title: "Garage Conversion to ADU — Salem", media: { type: "image", src: img("photo-1600585154526-990dced4db0d") }, avatar: AVATAR_CARLOS, orientation: "portrait" },
   { crewLead: "Mike R.", title: "Cabinet & Trim Carpentry — Keizer", media: { type: "image", src: img("photo-1556228453-efd6c1ff04f6") }, avatar: AVATAR_MIKE, orientation: "portrait" },
   { crewLead: "Dave T.", title: "Roof Tear-Off & Replacement — Portland", media: { type: "image", src: img("photo-1632759145355-8b8f3ab1c4c5") }, avatar: AVATAR_DAVE, orientation: "landscape" },
-  { crewLead: "Lyth Construction", title: "Two-Story Addition — Tualatin", media: { type: "image", src: img("photo-1564013799919-ab600027ffc6") }, avatar: AVATAR_LYTH, orientation: "portrait" },
+  { crewLead: "Lyth Construction", title: "Two-Story Addition — Tualatin", media: { type: "image", src: "/images/project-modern-exterior.jpg" }, avatar: AVATAR_LYTH, orientation: "portrait" },
   { crewLead: "Carlos M.", title: "Retaining Wall & Drainage — South Salem", media: { type: "image", src: img("photo-1597047084897-51e81819a499") }, avatar: AVATAR_CARLOS, orientation: "landscape" },
   { crewLead: "Mike R.", title: "Hardwood Floor Install — Wilsonville", media: { type: "image", src: img("photo-1493663284031-b7e3aefcae8e") }, avatar: AVATAR_MIKE, orientation: "landscape" },
   { crewLead: "Dave T.", title: "Stucco & Exterior Repair — McMinnville", media: { type: "image", src: img("photo-1568605114967-8130f3a36994") }, avatar: AVATAR_DAVE, orientation: "portrait" },
