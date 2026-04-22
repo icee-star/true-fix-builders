@@ -32,12 +32,12 @@ const Proof = () => {
               </figcaption>
             </figure>
             <figure className="relative">
-              <img
-                src={afterImg}
-                alt="The same apartment building after full siding and exterior renovation"
-                width={1024}
-                height={768}
-                loading="lazy"
+              <video
+                src="/videos/project-after.mov"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="h-full w-full object-cover"
               />
               <figcaption className="absolute left-3 top-3 rounded bg-brand-burgundy/95 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
