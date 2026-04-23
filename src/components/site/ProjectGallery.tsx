@@ -40,7 +40,7 @@ const projects: Project[] = [
   { crewLead: "Carlos M.", title: "Dry Rot Repair — Lincoln City", media: { type: "video", src: "/videos/dry-rot-repair-lincoln-city.mov" }, avatar: AVATAR_CARLOS, orientation: "portrait" },
   { crewLead: "Mike R.", title: "Modern Farmhouse Remodel — Dallas", media: { type: "image", src: "/images/project-kitchen.jpg" }, avatar: AVATAR_MIKE, orientation: "landscape" },
   { crewLead: "Dave T.", title: "Window & Trim Replacement — Salem", media: { type: "image", src: "/images/project-modern-living.jpg" }, avatar: AVATAR_DAVE, orientation: "portrait" },
-  { crewLead: "Lyth Construction", title: "Custom Pergola & Patio Cover", media: { type: "video", src: VIDEO_CONSTRUCTION_3, poster: img("photo-1600607687939-ce8a6c25118c") }, avatar: AVATAR_LYTH, orientation: "landscape" },
+  { crewLead: "Lyth Construction", title: "Custom Pergola & Patio Cover", media: { type: "video", src: "/videos/custom-pergola-patio-cover.mov" }, avatar: AVATAR_LYTH, orientation: "landscape" },
   { crewLead: "Carlos M.", title: "Garage Conversion to ADU — Salem", media: { type: "image", src: img("photo-1600585154526-990dced4db0d") }, avatar: AVATAR_CARLOS, orientation: "portrait" },
   { crewLead: "Mike R.", title: "Cabinet & Trim Carpentry — Keizer", media: { type: "image", src: img("photo-1556228453-efd6c1ff04f6") }, avatar: AVATAR_MIKE, orientation: "portrait" },
   { crewLead: "Dave T.", title: "Roof Tear-Off & Replacement — Portland", media: { type: "image", src: img("photo-1632759145355-8b8f3ab1c4c5") }, avatar: AVATAR_DAVE, orientation: "landscape" },
