@@ -46,7 +46,7 @@ const projects: Project[] = [
   { crewLead: "Dave T.", title: "Roof Tear-Off & Replacement — Portland", media: { type: "image", src: img("photo-1632759145355-8b8f3ab1c4c5") }, avatar: AVATAR_DAVE, orientation: "landscape" },
   { crewLead: "Lyth Construction", title: "Two-Story Addition — Tualatin", media: { type: "image", src: "/images/project-modern-exterior.jpg" }, avatar: AVATAR_LYTH, orientation: "portrait" },
   { crewLead: "Carlos M.", title: "Retaining Wall & Drainage — South Salem", media: { type: "image", src: "/images/retaining-wall-south-salem.png" }, avatar: AVATAR_CARLOS, orientation: "landscape" },
-  { crewLead: "Mike R.", title: "Hardwood Floor Install — Wilsonville", media: { type: "image", src: img("photo-1493663284031-b7e3aefcae8e") }, avatar: AVATAR_MIKE, orientation: "landscape" },
+  { crewLead: "Mike R.", title: "Hardwood Floor Install — Wilsonville", media: { type: "image", src: "/images/hardwood-floor-install.png" }, avatar: AVATAR_MIKE, orientation: "landscape" },
   { crewLead: "Dave T.", title: "Stucco & Exterior Repair — McMinnville", media: { type: "image", src: img("photo-1568605114967-8130f3a36994") }, avatar: AVATAR_DAVE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Whole-Home Repaint — Salem Heights", media: { type: "video", src: "/videos/whole-home-repaint-salem-heights.mov" }, avatar: AVATAR_LYTH, orientation: "portrait" },
 ];
