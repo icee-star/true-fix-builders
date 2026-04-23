@@ -1,44 +1,43 @@
 
+Yes — we can turn the selected “Exterior Remodeling” service image into an interactive before/after slider while keeping the rest of the service card the same.
 
-# Add Videos to the Project Gallery
+## Plan
 
-Right now `ProjectGallery` only renders `<img>` tags. To support video clips alongside photos, we'll extend the data shape and render the right element per item — the masonry layout, click-to-expand lightbox, and mixed aspect ratios all keep working.
+1. Add before/after image support to the Services data
+   - Keep the existing service card layout, title, description, spacing, and aspect ratio.
+   - Update only the selected “Exterior Remodeling” service item so it can use two images instead of one.
+   - Use the uploaded “before” and “after” images once you send them.
 
-## What changes
+2. Build a reusable before/after image comparison component
+   - Display the “before” image as the base layer.
+   - Display the “after” image clipped on top.
+   - Add a draggable slider handle so visitors can reveal more or less of the after image.
+   - Include small “Before” and “After” labels on the image.
+   - Preserve the current `4:3` card image area so the services grid does not shift.
 
-1. **Data shape gains a `media` type.** Each entry in the `projects` array becomes either `{ type: "image", src }` or `{ type: "video", src, poster? }`. Existing image entries get auto-migrated.
-2. **Card thumbnails autoplay muted, looping, inline.** Videos in the grid behave like animated photos — silent, looping, no controls — so the gallery still feels like a photo wall, not a video player.
-3. **Lightbox plays the full video with controls.** When a video card is clicked, the Dialog renders a `<video controls autoPlay>` instead of an `<img>`. Audio plays here. Closing the lightbox stops playback.
-4. **A small play-icon badge** sits in the bottom-right of any video card so users know it's a clip before they tap.
+3. Keep the current service card behavior
+   - Maintain the same card hover styling.
+   - Keep lazy-loaded images where appropriate.
+   - Keep the same object-cover behavior so images fill the card neatly.
+   - Ensure the rest of the service cards still render as normal single images.
 
-## Where videos come from
+4. Make it mobile-friendly
+   - The slider will work with mouse, touch, and keyboard-friendly input behavior.
+   - The handle will be large enough to use on phones.
+   - The comparison will stay inside the existing rounded image container.
 
-Two supported sources, both via plain URLs in the data array:
+## What I’ll need from you
 
-- **Hosted MP4/WebM** (recommended): drop files into `public/videos/` and reference with `staticFile("videos/clip-1.mp4")`. Works offline-friendly, no third party.
-- **External URL** (e.g. Cloudinary, Mux, S3, Vimeo direct file): paste the `.mp4` URL directly. YouTube/Vimeo embed pages don't work — must be a direct video file URL.
+Please upload the two images:
+- Before image
+- After image
 
-For the first pass we'll wire **2–3 placeholder MP4 clips** from a free CDN (Google's sample videos / Pexels) into the existing 24-item array so you can see the behavior immediately, then swap in Carlos's real footage later by editing one line per item.
+Once they’re uploaded, I’ll wire them into the selected Exterior Remodeling service card and keep everything else unchanged.
 
-## Files
+## Technical details
 
-- **Edit** `src/components/site/ProjectCard.tsx`
-  - Render `<video muted loop autoPlay playsInline preload="metadata">` when `project.media.type === "video"`, otherwise the existing `<img>`.
-  - Add a small play-icon pill (lucide `Play` icon) in the bottom-right corner for video items.
-- **Edit** `src/components/site/ProjectGallery.tsx`
-  - Update the `Project` type / data array so each item has a `media` discriminated union. Migrate all 24 existing entries to `media: { type: "image", src: ... }`.
-  - Replace ~3 entries with `media: { type: "video", src: "...", poster: "..." }` using sample construction clips.
-  - In the lightbox, branch on `active.media.type`: render `<img>` for photos (unchanged) or `<video controls autoPlay className="max-h-[85vh]">` for videos.
-
-## Performance notes
-
-- Grid videos use `preload="metadata"` so we don't download full files until hover/play — keeps the gallery light even with many clips.
-- `playsInline` prevents iOS Safari from forcing fullscreen on autoplay.
-- `muted` is required for autoplay to work in all browsers.
-
-## Out of scope
-
-- Uploading videos through a UI (you'd add files to `public/videos/` or paste URLs in code for now).
-- Video transcoding / thumbnail generation — provide a `poster` image URL per video, or we'll fall back to the first frame.
-- Lazy-mounting (only loading the `<video>` element when scrolled into view) — can add later if performance becomes an issue with 10+ video clips.
-
+- Update `src/components/site/Services.tsx`.
+- Add a small `BeforeAfterSlider` component, either inside `Services.tsx` or as a separate component if cleaner.
+- Use React state for the slider position.
+- Use CSS clipping or width-based overlay to reveal the after image.
+- Use the existing `@radix-ui/react-slider` dependency already present in the project, or implement a lightweight native range input if that is simpler and more reliable for this use case.
