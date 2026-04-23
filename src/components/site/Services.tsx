@@ -1,9 +1,11 @@
+import { useState } from "react";
 import siding from "@/assets/service-siding.jpg";
 import roofing from "@/assets/service-roofing.jpg";
 import paint from "@/assets/service-paint.jpg";
 import deck from "@/assets/service-deck.jpg";
 import patio from "@/assets/service-patio.jpg";
-import remodel from "@/assets/service-remodel-new.jpg";
+import remodelBefore from "@/assets/service-remodel.jpg";
+import remodelAfter from "@/assets/service-remodel-new.jpg";
 
 const services = [
   {
@@ -42,13 +44,76 @@ const services = [
       "Outdoor space you can actually use in the Oregon rain. Design and build, matched to the look of your house.",
   },
   {
-    img: remodel,
+    img: remodelAfter,
+    beforeImg: remodelBefore,
+    afterImg: remodelAfter,
     alt: "Fully remodeled craftsman home exterior",
     title: "Exterior Remodeling",
     body:
       "Siding, paint, trim, and sometimes deck work combined into one project. Modernize the look of the house, fix what needs fixing, and prep for sale in one pass.",
   },
 ];
+
+const BeforeAfterSlider = ({
+  beforeImg,
+  afterImg,
+  alt,
+}: {
+  beforeImg: string;
+  afterImg: string;
+  alt: string;
+}) => {
+  const [position, setPosition] = useState(50);
+
+  return (
+    <div className="relative h-full w-full overflow-hidden bg-muted">
+      <img
+        src={beforeImg}
+        alt={`Before ${alt.toLowerCase()}`}
+        width={1024}
+        height={768}
+        loading="lazy"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 overflow-hidden" style={{ width: `${position}%` }}>
+        <img
+          src={afterImg}
+          alt={`After ${alt.toLowerCase()}`}
+          width={1024}
+          height={768}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          style={{ width: `${10000 / position}%`, maxWidth: "none" }}
+        />
+      </div>
+      <div className="pointer-events-none absolute left-3 top-3 rounded-md bg-background/90 px-2.5 py-1 text-xs font-medium text-foreground shadow-sm">
+        After
+      </div>
+      <div className="pointer-events-none absolute right-3 top-3 rounded-md bg-background/90 px-2.5 py-1 text-xs font-medium text-foreground shadow-sm">
+        Before
+      </div>
+      <div
+        className="pointer-events-none absolute inset-y-0 w-0.5 bg-background shadow-sm"
+        style={{ left: `${position}%` }}
+      />
+      <div
+        className="pointer-events-none absolute top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-border bg-background text-foreground shadow-md"
+        style={{ left: `${position}%` }}
+      >
+        <span className="text-sm leading-none">↔</span>
+      </div>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value={position}
+        aria-label="Compare before and after exterior remodeling images"
+        onChange={(event) => setPosition(Number(event.target.value))}
+        className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0"
+      />
+    </div>
+  );
+};
 
 const Services = () => {
   return (
@@ -71,14 +136,18 @@ const Services = () => {
               className="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
             >
               <div className="aspect-[4/3] overflow-hidden bg-muted">
-                <img
-                  src={s.img}
-                  alt={s.alt}
-                  width={1024}
-                  height={768}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                {s.beforeImg && s.afterImg ? (
+                  <BeforeAfterSlider beforeImg={s.beforeImg} afterImg={s.afterImg} alt={s.alt} />
+                ) : (
+                  <img
+                    src={s.img}
+                    alt={s.alt}
+                    width={1024}
+                    height={768}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
               </div>
               <div className="p-6">
                 <h3 className="font-serif text-xl font-semibold leading-snug text-foreground">
