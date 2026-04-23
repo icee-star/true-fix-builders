@@ -36,7 +36,7 @@ const projects: Project[] = [
   { crewLead: "Carlos M.", title: "Exterior Siding Replacement — Salem", media: { type: "video", src: "/videos/exterior-siding-salem.mov" }, avatar: AVATAR_CARLOS, orientation: "portrait" },
   { crewLead: "Mike R.", title: "Open-Concept Living Room — Sherwood", media: { type: "image", src: "/images/open-concept-living-sherwood.jpg" }, avatar: AVATAR_MIKE, orientation: "portrait" },
   { crewLead: "Dave T.", title: "Front Porch Rebuild — Eugene", media: { type: "image", src: img("photo-1570129477492-45c003edd2be") }, avatar: AVATAR_DAVE, orientation: "portrait" },
-  { crewLead: "Lyth Construction", title: "Master Suite Addition — Bend", media: { type: "image", src: img("photo-1505691938895-1758d7feb511") }, avatar: AVATAR_LYTH, orientation: "landscape" },
+  { crewLead: "Lyth Construction", title: "Master Suite Addition — Bend", media: { type: "image", src: "/images/master-suite-addition-bend.png" }, avatar: AVATAR_LYTH, orientation: "landscape" },
   { crewLead: "Carlos M.", title: "Dry Rot Repair — Lincoln City", media: { type: "video", src: "/videos/dry-rot-repair-lincoln-city.mov" }, avatar: AVATAR_CARLOS, orientation: "portrait" },
   { crewLead: "Mike R.", title: "Modern Farmhouse Remodel — Dallas", media: { type: "image", src: "/images/project-kitchen.jpg" }, avatar: AVATAR_MIKE, orientation: "landscape" },
   { crewLead: "Dave T.", title: "Window & Trim Replacement — Salem", media: { type: "image", src: "/images/project-modern-living.jpg" }, avatar: AVATAR_DAVE, orientation: "portrait" },
