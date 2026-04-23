@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import beforeImg from "@/assets/project-before.jpg";
+import beforeImg from "@/assets/project-before.png";
 import afterImg from "@/assets/project-after.jpg";
 
 const Proof = () => {
