@@ -3,7 +3,7 @@ import roofing from "@/assets/service-roofing.jpg";
 import paint from "@/assets/service-paint.jpg";
 import deck from "@/assets/service-deck.jpg";
 import patio from "@/assets/service-patio.jpg";
-import remodel from "@/assets/service-remodel.jpg";
+import remodel from "@/assets/service-remodel-new.jpg";
 
 const services = [
   {
