@@ -48,7 +48,7 @@ const projects: Project[] = [
   { crewLead: "Carlos M.", title: "Retaining Wall & Drainage — South Salem", media: { type: "image", src: "/images/retaining-wall-south-salem.png" }, avatar: AVATAR_CARLOS, orientation: "landscape" },
   { crewLead: "Mike R.", title: "Hardwood Floor Install — Wilsonville", media: { type: "image", src: img("photo-1493663284031-b7e3aefcae8e") }, avatar: AVATAR_MIKE, orientation: "landscape" },
   { crewLead: "Dave T.", title: "Stucco & Exterior Repair — McMinnville", media: { type: "image", src: img("photo-1568605114967-8130f3a36994") }, avatar: AVATAR_DAVE, orientation: "portrait" },
-  { crewLead: "Lyth Construction", title: "Whole-Home Repaint — Salem Heights", media: { type: "image", src: img("photo-1562182384-08115de5ee97") }, avatar: AVATAR_LYTH, orientation: "portrait" },
+  { crewLead: "Lyth Construction", title: "Whole-Home Repaint — Salem Heights", media: { type: "video", src: "/videos/whole-home-repaint-salem-heights.mov" }, avatar: AVATAR_LYTH, orientation: "portrait" },
 ];
 
 const ProjectGallery = () => {
