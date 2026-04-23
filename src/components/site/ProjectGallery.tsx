@@ -41,7 +41,7 @@ const projects: Project[] = [
   { crewLead: "Mike R.", title: "Modern Farmhouse Remodel — Dallas", media: { type: "image", src: "/images/project-kitchen.jpg" }, avatar: AVATAR_MIKE, orientation: "landscape" },
   { crewLead: "Dave T.", title: "Window & Trim Replacement — Salem", media: { type: "image", src: "/images/project-modern-living.jpg" }, avatar: AVATAR_DAVE, orientation: "portrait" },
   { crewLead: "Lyth Construction", title: "Custom Pergola & Patio Cover", media: { type: "video", src: "/videos/custom-pergola-patio-cover.mov" }, avatar: AVATAR_LYTH, orientation: "landscape" },
-  { crewLead: "Carlos M.", title: "Garage Conversion to ADU — Salem", media: { type: "image", src: img("photo-1600585154526-990dced4db0d") }, avatar: AVATAR_CARLOS, orientation: "portrait" },
+  { crewLead: "Carlos M.", title: "Garage Conversion to ADU — Salem", media: { type: "video", src: "/videos/garage-conversion-adu-salem.mov" }, avatar: AVATAR_CARLOS, orientation: "portrait" },
   { crewLead: "Mike R.", title: "Cabinet & Trim Carpentry — Keizer", media: { type: "image", src: "/a866cf39-1b92-4d6a-8bd0-05c05e85a94f.png" }, avatar: AVATAR_MIKE, orientation: "portrait" },
   { crewLead: "Dave T.", title: "Roof Tear-Off & Replacement — Portland", media: { type: "image", src: "/images/roof-tear-off-replacement-portland.png" }, avatar: AVATAR_DAVE, orientation: "landscape" },
   { crewLead: "Lyth Construction", title: "Two-Story Addition — Tualatin", media: { type: "image", src: "/images/project-modern-exterior.jpg" }, avatar: AVATAR_LYTH, orientation: "portrait" },
