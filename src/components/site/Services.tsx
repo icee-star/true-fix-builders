@@ -1,5 +1,5 @@
 import { useState } from "react";
-import siding from "@/assets/service-siding.jpg";
+import siding from "@/assets/service-siding.png";
 import roofing from "@/assets/service-roofing.jpg";
 import paint from "@/assets/service-paint.jpg";
 import deck from "@/assets/service-deck.jpg";
