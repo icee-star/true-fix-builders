@@ -7,10 +7,8 @@ export type ProjectMedia =
   | { type: "video"; src: string; poster?: string };
 
 export interface Project {
-  crewLead: string;
   title: string;
   media: ProjectMedia;
-  avatar: string;
   orientation: "landscape" | "portrait";
 }
 
@@ -84,29 +82,18 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
         </AspectRatio>
 
         {/* Gradient overlay */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-black/60 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" />
 
-        {/* Top-left content */}
-        <div className="absolute left-4 right-4 top-4">
-          <div className="flex items-center gap-2">
-            <img
-              src={project.avatar}
-              alt=""
-              aria-hidden="true"
-              className="h-8 w-8 rounded-full border border-white/90 object-cover"
-            />
-            <span className="text-sm font-semibold text-white [text-shadow:0_1px_2px_rgb(0_0_0_/_0.6)]">
-              {project.crewLead}
-            </span>
-          </div>
-          <h3 className="mt-2 font-serif text-lg font-medium leading-tight text-white [text-shadow:0_1px_3px_rgb(0_0_0_/_0.7)] md:text-xl">
+        {/* Title */}
+        <div className="absolute bottom-3 left-4 right-4">
+          <h3 className="font-serif text-base font-medium leading-tight text-white [text-shadow:0_1px_3px_rgb(0_0_0_/_0.7)] md:text-lg">
             {project.title}
           </h3>
         </div>
 
         {/* Video badge */}
         {isVideo && (
-          <div className="pointer-events-none absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-black/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+          <div className="pointer-events-none absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-black/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
             <Play className="h-3 w-3 fill-current" />
             <span>Video</span>
           </div>

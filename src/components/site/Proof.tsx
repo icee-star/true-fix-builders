@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import beforeImg from "@/assets/project-before.png";
-import afterImg from "@/assets/project-after.jpg";
+
+type View = "before" | "after";
 
 const Proof = () => {
+  const [view, setView] = useState<View>("before");
+
   return (
     <section className="bg-brand-warm-tint py-20 md:py-28">
       <div className="container">
@@ -17,35 +21,59 @@ const Proof = () => {
         </div>
 
         <article className="mx-auto mt-14 max-w-5xl overflow-hidden rounded-lg border border-border bg-card shadow-sm">
-          <div className="grid gap-0 md:grid-cols-2">
-            <figure className="relative">
-              <img
-                src={beforeImg}
-                alt="Two-story apartment building exterior with weathered, peeling siding before renovation"
-                width={1024}
-                height={768}
-                loading="lazy"
-                className="h-full w-full object-cover"
-              />
-              <figcaption className="absolute left-3 top-3 rounded bg-brand-ink/80 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-brand-cream">
+          {/* Toggle */}
+          <div className="flex items-center justify-center border-b border-border bg-muted/40 p-3">
+            <div className="flex rounded-full border border-border bg-background p-1 shadow-sm">
+              <button
+                onClick={() => setView("before")}
+                className={`rounded-full px-6 py-1.5 text-sm font-semibold transition-all duration-200 ${
+                  view === "before"
+                    ? "bg-brand-ink text-brand-cream shadow-sm"
+                    : "text-foreground/60 hover:text-foreground"
+                }`}
+              >
                 Before
-              </figcaption>
-            </figure>
-            <figure className="relative">
-              <video
-                src="/videos/project-after.mov"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="h-full w-full object-cover"
-              />
-              <figcaption className="absolute left-3 top-3 rounded bg-brand-burgundy/95 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
+              </button>
+              <button
+                onClick={() => setView("after")}
+                className={`rounded-full px-6 py-1.5 text-sm font-semibold transition-all duration-200 ${
+                  view === "after"
+                    ? "bg-brand-burgundy text-primary-foreground shadow-sm"
+                    : "text-foreground/60 hover:text-foreground"
+                }`}
+              >
                 After
-              </figcaption>
-            </figure>
+              </button>
+            </div>
           </div>
 
+          {/* Media */}
+          <div className="relative w-full overflow-hidden bg-brand-ink">
+            {/* Before image */}
+            <img
+              src={beforeImg}
+              alt="Two-story apartment building exterior with weathered, peeling siding before renovation"
+              width={1024}
+              height={768}
+              loading="lazy"
+              className={`w-full object-contain transition-opacity duration-500 ${
+                view === "before" ? "relative opacity-100" : "absolute inset-0 h-full opacity-0"
+              }`}
+            />
+            {/* After video */}
+            <video
+              src="/videos/project-after.mov"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={`w-full object-contain transition-opacity duration-500 ${
+                view === "after" ? "relative opacity-100" : "absolute inset-0 h-full opacity-0"
+              }`}
+            />
+          </div>
+
+          {/* Project details */}
           <div className="p-7 md:p-9">
             <p className="text-xs font-semibold uppercase tracking-wider text-brand-burgundy">
               Featured Project
@@ -60,9 +88,6 @@ const Proof = () => {
               studs that had never been addressed in a previous repair. We replaced the rotted
               sheeting and studs, installed new siding and trim across the affected sections, and
               repainted the building. Today the exterior is sound, sealed, and built to hold.
-            </p>
-            <p className="mt-3 text-xs italic text-muted-foreground">
-              Placeholder copy &mdash; to be replaced with project details from Carlos.
             </p>
 
             <div className="mt-7">

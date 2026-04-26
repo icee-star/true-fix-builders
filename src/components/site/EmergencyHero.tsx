@@ -25,7 +25,10 @@ const EmergencyHero = () => {
 
       <div className="container flex min-h-[78vh] flex-col justify-center py-24 md:py-28">
         <div className="max-w-3xl animate-fade-in-up">
-          <h1 className="font-serif text-4xl font-semibold leading-[1.1] text-brand-cream sm:text-5xl md:text-6xl">
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand-burgundy">
+            Emergency Repairs
+          </p>
+          <h1 className="mt-3 font-serif text-4xl font-semibold leading-[1.1] text-brand-cream sm:text-5xl md:text-6xl">
             Found Water Damage or Rot That Can&rsquo;t Wait a Month? We Get On It.
           </h1>
 

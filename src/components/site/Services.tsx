@@ -3,7 +3,7 @@ import siding from "@/assets/service-siding.png";
 import roofing from "@/assets/service-roofing.jpg";
 import paint from "@/assets/service-paint.jpg";
 import deck from "@/assets/service-deck.png";
-import patio from "@/assets/service-patio.jpg";
+import patio from "@/assets/service-patio-new.jpg";
 import remodelBefore from "@/assets/service-remodel.jpg";
 import remodelAfter from "@/assets/service-remodel-new.jpg";
 
@@ -75,22 +75,22 @@ const BeforeAfterSlider = ({
         loading="lazy"
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 overflow-hidden" style={{ width: `${position}%` }}>
+      <div className="absolute inset-y-0 right-0 overflow-hidden" style={{ width: `${100 - position}%` }}>
         <img
           src={afterImg}
           alt={`After ${alt.toLowerCase()}`}
           width={1024}
           height={768}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          style={{ width: `${10000 / position}%`, maxWidth: "none" }}
+          className="absolute inset-y-0 right-0 h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          style={{ width: `${10000 / (100 - position)}%`, maxWidth: "none" }}
         />
       </div>
       <div className="pointer-events-none absolute left-3 top-3 rounded-md bg-background/90 px-2.5 py-1 text-xs font-medium text-foreground shadow-sm">
-        After
+        Before
       </div>
       <div className="pointer-events-none absolute right-3 top-3 rounded-md bg-background/90 px-2.5 py-1 text-xs font-medium text-foreground shadow-sm">
-        Before
+        After
       </div>
       <div
         className="pointer-events-none absolute inset-y-0 w-0.5 bg-background shadow-sm"
@@ -149,11 +149,18 @@ const Services = () => {
                   />
                 )}
               </div>
-              <div className="p-6">
+              <div className="flex flex-col p-6">
                 <h3 className="font-serif text-xl font-semibold leading-snug text-foreground">
                   {s.title}
                 </h3>
                 <p className="mt-3 text-[0.95rem] leading-relaxed text-foreground/75">{s.body}</p>
+                <a
+                  href="/#contact"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-burgundy transition-colors hover:text-brand-burgundy-dark"
+                >
+                  Get a quote
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                </a>
               </div>
             </article>
           ))}

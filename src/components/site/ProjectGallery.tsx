@@ -2,53 +2,31 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import ProjectCard, { type Project } from "./ProjectCard";
 
-const AVATAR_MIKE =
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80";
-const AVATAR_LYTH =
-  "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?auto=format&fit=crop&w=120&q=80";
-const AVATAR_DAVE =
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80";
-const AVATAR_CARLOS =
-  "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&w=120&q=80";
-
-const img = (id: string) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
-
-// Sample construction-themed video clips (royalty-free placeholders).
-// Replace these URLs with Carlos's real footage — drop MP4s in `public/videos/`
-// and reference with `/videos/your-clip.mp4`, or paste any direct .mp4 URL here.
-const VIDEO_CONSTRUCTION_1 =
-  "https://cdn.coverr.co/videos/coverr-construction-worker-on-a-building-site-3034/1080p.mp4";
-const VIDEO_CONSTRUCTION_2 =
-  "https://cdn.coverr.co/videos/coverr-a-carpenter-at-work-2633/1080p.mp4";
-const VIDEO_CONSTRUCTION_3 =
-  "https://cdn.coverr.co/videos/coverr-a-construction-worker-using-a-saw-1573/1080p.mp4";
-
 const projects: Project[] = [
-  { crewLead: "Mike R.", title: "West Salem Kitchen Remodel", media: { type: "video", src: "/videos/west-salem-kitchen.mp4" }, avatar: AVATAR_MIKE, orientation: "portrait" },
-  { crewLead: "Lyth Construction", title: "Full Bathroom Renovation — Keizer", media: { type: "video", src: "/videos/bathroom-renovation.mp4" }, avatar: AVATAR_LYTH, orientation: "portrait" },
-  { crewLead: "Dave T.", title: "Commercial Tenant Buildout — Downtown Salem", media: { type: "image", src: "/images/commercial-tenant-buildout.jpg" }, avatar: AVATAR_DAVE, orientation: "landscape" },
-  { crewLead: "Mike R.", title: "New Build Framing — Turner", media: { type: "image", src: "/images/new-build-framing-turner.jpg" }, avatar: AVATAR_MIKE, orientation: "landscape" },
-  { crewLead: "Lyth Construction", title: "Deck & Outdoor Living Space", media: { type: "image", src: "/images/deck-outdoor-living.jpg" }, avatar: AVATAR_LYTH, orientation: "landscape" },
-  { crewLead: "Carlos M.", title: "Basement Finish — South Salem", media: { type: "image", src: "/images/basement-finish-south-salem.jpg" }, avatar: AVATAR_CARLOS, orientation: "landscape" },
-  { crewLead: "Dave T.", title: "Roof Replacement — 3,200 sqft", media: { type: "video", src: "/videos/roof-replacement.mp4" }, avatar: AVATAR_DAVE, orientation: "portrait" },
-  { crewLead: "Lyth Construction", title: "Custom Garage Build — Canby", media: { type: "video", src: "/videos/custom-garage-build-canby.mov" }, avatar: AVATAR_LYTH, orientation: "portrait" },
-  { crewLead: "Carlos M.", title: "Exterior Siding Replacement — Salem", media: { type: "video", src: "/videos/exterior-siding-salem.mov" }, avatar: AVATAR_CARLOS, orientation: "portrait" },
-  { crewLead: "Mike R.", title: "Open-Concept Living Room — Sherwood", media: { type: "image", src: "/images/open-concept-living-sherwood.jpg" }, avatar: AVATAR_MIKE, orientation: "portrait" },
-  { crewLead: "Dave T.", title: "Front Porch Rebuild — Eugene", media: { type: "image", src: img("photo-1570129477492-45c003edd2be") }, avatar: AVATAR_DAVE, orientation: "portrait" },
-  { crewLead: "Lyth Construction", title: "Master Suite Addition — Bend", media: { type: "image", src: "/images/master-suite-addition-bend.png" }, avatar: AVATAR_LYTH, orientation: "landscape" },
-  { crewLead: "Carlos M.", title: "Dry Rot Repair — Lincoln City", media: { type: "video", src: "/videos/dry-rot-repair-lincoln-city.mov" }, avatar: AVATAR_CARLOS, orientation: "portrait" },
-  { crewLead: "Mike R.", title: "Modern Farmhouse Remodel — Dallas", media: { type: "image", src: "/images/project-kitchen.jpg" }, avatar: AVATAR_MIKE, orientation: "landscape" },
-  { crewLead: "Dave T.", title: "Window & Trim Replacement — Salem", media: { type: "image", src: "/images/project-modern-living.jpg" }, avatar: AVATAR_DAVE, orientation: "portrait" },
-  { crewLead: "Lyth Construction", title: "Custom Pergola & Patio Cover", media: { type: "video", src: "/videos/custom-pergola-patio-cover.mov" }, avatar: AVATAR_LYTH, orientation: "landscape" },
-  { crewLead: "Carlos M.", title: "Garage Conversion to ADU — Salem", media: { type: "video", src: "/videos/garage-conversion-adu-salem.mov" }, avatar: AVATAR_CARLOS, orientation: "portrait" },
-  { crewLead: "Mike R.", title: "Cabinet & Trim Carpentry — Keizer", media: { type: "video", src: "/videos/cabinet-trim-carpentry-keizer.mov" }, avatar: AVATAR_MIKE, orientation: "portrait" },
-  { crewLead: "Dave T.", title: "Roof Tear-Off & Replacement — Portland", media: { type: "image", src: "/images/roof-tear-off-replacement-portland.png" }, avatar: AVATAR_DAVE, orientation: "landscape" },
-  { crewLead: "Lyth Construction", title: "Two-Story Addition — Tualatin", media: { type: "image", src: "/images/project-modern-exterior.jpg" }, avatar: AVATAR_LYTH, orientation: "portrait" },
-  { crewLead: "Carlos M.", title: "Retaining Wall & Drainage — South Salem", media: { type: "image", src: "/images/retaining-wall-south-salem.png" }, avatar: AVATAR_CARLOS, orientation: "landscape" },
-  { crewLead: "Mike R.", title: "Hardwood Floor Install — Wilsonville", media: { type: "image", src: "/images/hardwood-floor-install.png" }, avatar: AVATAR_MIKE, orientation: "landscape" },
-  { crewLead: "Dave T.", title: "Stucco & Exterior Repair — McMinnville", media: { type: "image", src: "/images/stucco-exterior-repair-mcminnville.png" }, avatar: AVATAR_DAVE, orientation: "portrait" },
-  { crewLead: "Lyth Construction", title: "Whole-Home Repaint — Salem Heights", media: { type: "video", src: "/videos/whole-home-repaint-salem-heights.mov" }, avatar: AVATAR_LYTH, orientation: "portrait" },
+  { title: "Windows · Paint · Doors", media: { type: "video", src: "/videos/west-salem-kitchen.mp4" }, orientation: "portrait" },
+  { title: "Windows · Paint · Doors", media: { type: "video", src: "/videos/bathroom-renovation.mp4" }, orientation: "portrait" },
+  { title: "Exterior Remodel · Siding · Fascia · Metal Roofing", media: { type: "image", src: "/images/commercial-tenant-buildout.jpg" }, orientation: "landscape" },
+  { title: "New Siding · Paper · Fresh Caulking", media: { type: "image", src: "/images/new-build-framing-turner.jpg" }, orientation: "landscape" },
+  { title: "New Paint", media: { type: "image", src: "/images/deck-outdoor-living.jpg" }, orientation: "landscape" },
+  { title: "New Deck · Flooring · Steps", media: { type: "image", src: "/images/basement-finish-south-salem.jpg" }, orientation: "landscape" },
+  { title: "Windows · Paint · Doors", media: { type: "video", src: "/videos/roof-replacement.mp4" }, orientation: "portrait" },
+  { title: "Exterior Remodel · Siding", media: { type: "video", src: "/videos/custom-garage-build-canby.mov" }, orientation: "portrait" },
+  { title: "New Patio · Roof · Deck · Additional Room", media: { type: "video", src: "/videos/exterior-siding-salem.mov" }, orientation: "portrait" },
+  { title: "Exterior Remodel", media: { type: "image", src: "/images/open-concept-living-sherwood.jpg" }, orientation: "portrait" },
+  { title: "Project 11", media: { type: "image", src: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80" }, orientation: "portrait" },
+  { title: "New Patio", media: { type: "image", src: "/images/master-suite-addition-bend.png" }, orientation: "landscape" },
+  { title: "Exterior Remodel", media: { type: "video", src: "/videos/dry-rot-repair-lincoln-city.mov" }, orientation: "portrait" },
+  { title: "Exterior Remodel · Siding", media: { type: "image", src: "/images/project-kitchen.jpg" }, orientation: "landscape" },
+  { title: "Siding · Roofing", media: { type: "image", src: "/images/project-modern-living.jpg" }, orientation: "portrait" },
+  { title: "Project 16", media: { type: "video", src: "/videos/custom-pergola-patio-cover.mov" }, orientation: "landscape" },
+  { title: "Project 17", media: { type: "video", src: "/videos/garage-conversion-adu-salem.mov" }, orientation: "portrait" },
+  { title: "New Deck · New Patio", media: { type: "video", src: "/videos/cabinet-trim-carpentry-keizer.mov" }, orientation: "portrait" },
+  { title: "Vinyl Siding · Board & Batten · Tando Stone", media: { type: "image", src: "/images/roof-tear-off-replacement-portland.png" }, orientation: "landscape" },
+  { title: "New Chimney · Fresh Paint", media: { type: "image", src: "/images/project-modern-exterior.jpg" }, orientation: "portrait" },
+  { title: "New Paint", media: { type: "image", src: "/images/retaining-wall-south-salem.png" }, orientation: "landscape" },
+  { title: "Vinyl Siding · Board & Batten · Tando Stone", media: { type: "image", src: "/images/hardwood-floor-install.png" }, orientation: "landscape" },
+  { title: "New Patio", media: { type: "image", src: "/images/stucco-exterior-repair-mcminnville.png" }, orientation: "portrait" },
+  { title: "New Siding", media: { type: "video", src: "/videos/whole-home-repaint-salem-heights.mov" }, orientation: "portrait" },
 ];
 
 const ProjectGallery = () => {
@@ -57,14 +35,7 @@ const ProjectGallery = () => {
   return (
     <section className="bg-brand-ink py-16 md:py-24">
       <div className="container">
-        <h2 className="text-center font-serif text-3xl font-bold tracking-tight text-brand-cream md:text-4xl lg:text-5xl">
-          Recent Projects
-        </h2>
-        <p className="mx-auto mt-3 max-w-xl text-center text-sm text-brand-cream/70">
-          Tap any photo or video to view it full size.
-        </p>
-
-        <div className="mx-auto mt-12 max-w-7xl">
+        <div className="mx-auto mt-4 max-w-7xl">
           <div className="gap-4 [column-gap:1rem] columns-1 sm:columns-2 lg:columns-3 xl:columns-4">
             {projects.map((project, i) => (
               <ProjectCard
@@ -83,9 +54,7 @@ const ProjectGallery = () => {
           {active && (
             <>
               <DialogTitle className="sr-only">{active.title}</DialogTitle>
-              <DialogDescription className="sr-only">
-                Project by {active.crewLead}
-              </DialogDescription>
+              <DialogDescription className="sr-only">{active.title}</DialogDescription>
               <div className="relative">
                 {active.media.type === "video" ? (
                   <video
@@ -104,16 +73,7 @@ const ProjectGallery = () => {
                   />
                 )}
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 rounded-b-2xl bg-gradient-to-t from-black/80 to-transparent p-6 pt-16">
-                  <div className="flex items-center gap-2">
-                    <img
-                      src={active.avatar}
-                      alt=""
-                      aria-hidden="true"
-                      className="h-8 w-8 rounded-full border border-white/90 object-cover"
-                    />
-                    <span className="text-sm font-semibold text-white">{active.crewLead}</span>
-                  </div>
-                  <h3 className="mt-2 font-serif text-xl font-medium leading-tight text-white md:text-2xl">
+                  <h3 className="font-serif text-xl font-medium leading-tight text-white md:text-2xl">
                     {active.title}
                   </h3>
                 </div>
