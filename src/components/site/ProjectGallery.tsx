@@ -39,7 +39,7 @@ const ProjectGallery = () => {
           <div className="gap-4 [column-gap:1rem] columns-1 sm:columns-2 lg:columns-3 xl:columns-4">
             {projects.map((project, i) => (
               <ProjectCard
-                key={project.title}
+                key={i}
                 project={project}
                 index={i}
                 onClick={() => setActive(project)}

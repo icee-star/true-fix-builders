@@ -4,7 +4,11 @@ const Footer = () => {
       <div className="container py-14">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <p className="font-serif text-xl font-semibold text-brand-cream">CCA Construction LLC</p>
+            <img
+              src="/images/logo.png"
+              alt="CCA Construction LLC"
+              className="h-12 w-auto"
+            />
             <p className="mt-3 text-sm leading-relaxed text-brand-cream/75">
               Salem, OR · Serving Salem, Portland, Eugene, Bend, Sherwood, and Lincoln City.
             </p>

@@ -48,9 +48,19 @@ const ContactForm = () => {
     defaultValues: { name: "", phone: "", address: "", message: "", website: "" },
   });
 
-  const onSubmit = async (_values: ContactValues) => {
-    // Simulate brief processing — no backend wired up yet
-    await new Promise((r) => setTimeout(r, 600));
+  const onSubmit = async (values: ContactValues) => {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbxSE1VLzubF6gWLk0rOXsJNlQBAQDf6xl182p0bcbGg9G3U6OS-pL8orf4Dk4mMeH91Ew/exec",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          name: values.name,
+          phone: values.phone,
+          address: values.address,
+          message: values.message,
+        }),
+      }
+    );
     setSubmitted(true);
     toast.success("Thanks — we'll call you back, usually same day.");
   };
