@@ -1,5 +1,5 @@
 import { Phone, ArrowDown } from "lucide-react";
-import heroImage from "@/assets/hero-home.jpg";
+import heroImage from "@/assets/home-hero.png";
 
 const Hero = () => {
   return (
@@ -27,12 +27,12 @@ const Hero = () => {
       <div className="container flex min-h-[88vh] flex-col justify-center py-24 md:py-32">
         <div className="max-w-3xl animate-fade-in-up">
           <h1 className="font-serif text-4xl font-semibold leading-[1.1] text-brand-cream sm:text-5xl md:text-6xl">
-            If a Contractor Already &ldquo;Fixed&rdquo; Your Leak and Water Is Still Coming In, the Rot Is Still There.
+            Dry Rot and Water Damage Don&rsquo;t Stop at the Surface. Most Repairs Do. Ours Don&rsquo;t.
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-brand-cream/90 sm:text-lg md:text-xl">
-            We repair siding, sheeting, and structural damage the right way for homeowners across Oregon.
-            30 years of experience. Licensed, bonded, insured. Every call back within 24 hours.
+            We pull the siding, show you what&rsquo;s underneath, and replace damaged sheeting and studs, not just what you can see.
+            30 years of exterior work on Oregon homes. Oregon CCB #247508.
           </p>
 
           <div className="mt-10 flex flex-col items-start gap-4">

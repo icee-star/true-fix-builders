@@ -6,33 +6,36 @@ const Problem = () => {
       <div className="container grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <div>
           <h2 className="font-serif text-3xl font-semibold leading-tight text-foreground sm:text-4xl md:text-[2.75rem]">
-            The Leak You Think Got Fixed Usually Didn&rsquo;t.
+            The Damage Behind Your Siding Is Almost Always Worse Than What You Can See.
           </h2>
 
           <div className="mt-6 space-y-5 text-base leading-relaxed text-foreground/80 md:text-lg">
             <p>
-              Most of the calls we take are from homeowners whose last contractor patched the visible
-              damage and left. A few months later the paint is bubbling again. The drywall inside is
-              stained again. The leak never actually stopped, because the rot behind the siding was
-              never removed.
+              Dry rot is a fungus. It starts where wood stays damp, around window frames, at the
+              base of siding panels, anywhere water finds a gap. Once it starts, it spreads through
+              the wall structure whether the surface looks fine or not. What looks like a paint
+              problem or a soft spot on the outside is often rotted sheeting and damaged studs by
+              the time the siding comes off.
             </p>
             <p>
-              Dry rot is a fungus. If any of the affected wood stays, it keeps spreading inside the
-              wall where nobody can see it. By the time a homeowner calls us the second time, the
-              sheeting is gone and the studs behind it are damaged. What started as a siding repair
-              is now a structural repair.
+              Water damage from a leak works the same way. It travels down inside the wall cavity
+              past what&rsquo;s visible, soaking insulation and reaching wood that only shows up when
+              someone opens the wall. The reason most repairs don&rsquo;t hold is that new siding goes
+              over whatever is behind it. If the sheeting is rotted and doesn&rsquo;t get replaced, the
+              new material has nothing solid to attach to. The problem comes back. Paint bubbling,
+              drywall staining. By then the damage has spread further into the studs.
             </p>
             <p>
-              We show up, pull the siding off, and show you exactly what&rsquo;s underneath. If the
-              sheeting is rotted, we replace it. If the studs are damaged, we replace them. The
-              house gets closed back up with new material, not patched over old material. That&rsquo;s
-              the reason we don&rsquo;t get called back to fix our own work.
+              We pull the siding off and show you what&rsquo;s underneath before anything goes back on.
+              If the sheeting is rotted, we replace it. If the studs are damaged, we replace them.
+              The house gets closed back up with new material, not patched over old material.
+              That&rsquo;s the reason we don&rsquo;t get called back to fix our own work.
             </p>
           </div>
         </div>
 
         <div className="relative">
-          <div className="overflow-hidden rounded-lg shadow-xl shadow-black/10">
+          <div className="overflow-hidden rounded-lg shadow-xl shadow-black/10 lg:h-[540px]">
             <img
               src={problemImage}
               alt="Exterior wall with siding removed exposing rotted sheeting and damaged studs"
