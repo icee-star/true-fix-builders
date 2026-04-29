@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '{print $5, $9}')",
+      "Bash(ffmpeg -version)",
+      "Bash(where ffmpeg *)",
+      "Bash($FFPROBE *)",
+      "Bash(awk '{print \"Exact size:\", $1, \"bytes =\", $1/1024/1024, \"MiB\"}')",
+      "Bash(rm \"/c/be-tech/true-fix-builders/public/videos/custom-pergola-patio-cover.mov\")",
+      "Bash(mv \"/c/be-tech/true-fix-builders/public/videos/custom-pergola-patio-cover_compressed.mp4\" \"/c/be-tech/true-fix-builders/public/videos/custom-pergola-patio-cover.mp4\")"
+    ]
+  }
+}

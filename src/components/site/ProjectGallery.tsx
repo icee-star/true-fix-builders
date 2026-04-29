@@ -18,7 +18,7 @@ const projects: Project[] = [
   { title: "Exterior Remodel", media: { type: "video", src: "/videos/dry-rot-repair-lincoln-city.mov" }, orientation: "portrait" },
   { title: "Exterior Remodel · Siding", media: { type: "image", src: "/images/project-kitchen.jpg" }, orientation: "landscape" },
   { title: "Siding · Roofing", media: { type: "image", src: "/images/project-modern-living.jpg" }, orientation: "portrait" },
-  { title: "Project 16", media: { type: "video", src: "/videos/custom-pergola-patio-cover.mov" }, orientation: "landscape" },
+  { title: "Project 16", media: { type: "video", src: "/videos/custom-pergola-patio-cover.mp4" }, orientation: "landscape" },
   { title: "Project 17", media: { type: "video", src: "/videos/garage-conversion-adu-salem.mov" }, orientation: "portrait" },
   { title: "New Deck · New Patio", media: { type: "video", src: "/videos/cabinet-trim-carpentry-keizer.mov" }, orientation: "portrait" },
   { title: "Vinyl Siding · Board & Batten · Tando Stone", media: { type: "image", src: "/images/roof-tear-off-replacement-portland.png" }, orientation: "landscape" },
