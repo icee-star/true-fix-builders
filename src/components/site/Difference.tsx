@@ -27,7 +27,7 @@ const Difference = () => {
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-3xl font-semibold leading-tight text-foreground sm:text-4xl md:text-[2.75rem]">
-            Four Things Your Last Contractor Probably Didn&rsquo;t Do.
+            Four Things We Do on Every Job That Most Contractors Don&rsquo;t.
           </h2>
         </div>
 
