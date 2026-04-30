@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -8,6 +8,15 @@ import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxSE1VLzubF6gWLk0rOXsJNlQBAQDf6xl182p0bcbGg9G3U6OS-pL8orf4Dk4mMeH91Ew/exec";
+
+const RATE_LIMIT_KEY = "tfb_last_submit";
+const RATE_LIMIT_MS = 60_000;
+
+// Strip null bytes and non-printable control chars (keep tab/newline/CR for message field)
+const sanitize = (s: string) => s.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "");
 
 const contactSchema = z.object({
   name: z
@@ -39,6 +48,7 @@ type ContactValues = z.infer<typeof contactSchema>;
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const loadedAt = useRef(Date.now());
   const {
     register,
     handleSubmit,
@@ -49,20 +59,32 @@ const ContactForm = () => {
   });
 
   const onSubmit = async (values: ContactValues) => {
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbxSE1VLzubF6gWLk0rOXsJNlQBAQDf6xl182p0bcbGg9G3U6OS-pL8orf4Dk4mMeH91Ew/exec",
-      {
+    // Timing check: bots submit forms in milliseconds
+    if (Date.now() - loadedAt.current < 2000) return;
+
+    // Rate limiting: one submission per minute per browser
+    const last = Number(localStorage.getItem(RATE_LIMIT_KEY) ?? 0);
+    if (Date.now() - last < RATE_LIMIT_MS) {
+      toast.error("Please wait a moment before submitting again.");
+      return;
+    }
+
+    try {
+      await fetch(SCRIPT_URL, {
         method: "POST",
         body: JSON.stringify({
-          name: values.name,
+          name: sanitize(values.name),
           phone: values.phone,
-          address: values.address,
-          message: values.message,
+          address: sanitize(values.address),
+          message: sanitize(values.message),
         }),
-      }
-    );
-    setSubmitted(true);
-    toast.success("Thanks — we'll call you back, usually same day.");
+      });
+      localStorage.setItem(RATE_LIMIT_KEY, String(Date.now()));
+      setSubmitted(true);
+      toast.success("Thanks — we'll call you back, usually same day.");
+    } catch {
+      toast.error("Something went wrong. Please try again or call us directly at 503-901-4583.");
+    }
   };
 
   return (
