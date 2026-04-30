@@ -1,4 +1,4 @@
-import problemImage from "@/assets/problem-rot.jpg";
+import problemImage from "@/assets/problem-rot.webp";
 
 const Problem = () => {
   return (

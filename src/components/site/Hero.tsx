@@ -1,5 +1,5 @@
 import { Phone, ArrowDown } from "lucide-react";
-import heroImage from "@/assets/home-hero.png";
+import heroImage from "@/assets/home-hero.webp";
 
 const Hero = () => {
   return (

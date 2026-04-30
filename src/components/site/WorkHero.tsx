@@ -1,5 +1,5 @@
 import { Phone } from "lucide-react";
-import heroImage from "@/assets/work-hero.jpg";
+import heroImage from "@/assets/work-hero.webp";
 
 const services = ["Siding", "Roofing", "Exterior Paint", "Decks", "Covered Patios"];
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import beforeImg from "@/assets/project-before.png";
+import beforeImg from "@/assets/project-before-2.webp";
 
 type View = "before" | "after";
 
