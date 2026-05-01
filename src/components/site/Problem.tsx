@@ -11,25 +11,22 @@ const Problem = () => {
 
           <div className="mt-6 space-y-5 text-base leading-relaxed text-foreground/80 md:text-lg">
             <p>
-              Dry rot is a fungus. It starts where wood stays damp, around window frames, at the
-              base of siding panels, anywhere water finds a gap. Once it starts, it spreads through
-              the wall structure whether the surface looks fine or not. What looks like a paint
-              problem or a soft spot on the outside is often rotted sheeting and damaged studs by
-              the time the siding comes off.
+              Dry rot starts where wood stays damp — window frames, the base of siding panels,
+              anywhere water finds a gap. Once it starts, it spreads through the wall whether the
+              surface looks fine or not. What looks like a soft spot outside is often rotted
+              sheeting and damaged studs by the time the siding comes off.
             </p>
             <p>
-              Water damage from a leak works the same way. It travels down inside the wall cavity
-              past what&rsquo;s visible, soaking insulation and reaching wood that only shows up when
-              someone opens the wall. The reason most repairs don&rsquo;t hold is that new siding goes
-              over whatever is behind it. If the sheeting is rotted and doesn&rsquo;t get replaced, the
-              new material has nothing solid to attach to. The problem comes back. Paint bubbling,
-              drywall staining. By then the damage has spread further into the studs.
+              Water damage works the same way. It travels down inside the wall cavity past
+              what&rsquo;s visible, soaking insulation and reaching wood you can&rsquo;t see. Most
+              repairs don&rsquo;t hold because new siding goes over rotted material with nothing
+              solid to attach to. The problem comes back.
             </p>
             <p>
-              We pull the siding off and show you what&rsquo;s underneath before anything goes back on.
-              If the sheeting is rotted, we replace it. If the studs are damaged, we replace them.
-              The house gets closed back up with new material, not patched over old material.
-              That&rsquo;s the reason we don&rsquo;t get called back to fix our own work.
+              We pull the siding off and show you what&rsquo;s underneath before anything goes back
+              on. Rotted sheeting gets replaced. Damaged studs get replaced. The house closes back
+              up with new material, not patched over old. That&rsquo;s why we don&rsquo;t get called
+              back to fix our own work.
             </p>
           </div>
         </div>
