@@ -9,6 +9,15 @@ import remodelAfter from "@/assets/service-remodel-new.webp";
 
 const services = [
   {
+    img: remodelAfter,
+    beforeImg: remodelBefore,
+    afterImg: remodelAfter,
+    alt: "Fully remodeled craftsman home exterior",
+    title: "Exterior Remodeling",
+    body:
+      "Siding, paint, trim, and sometimes deck work combined into one project. Modernize the look of the house, fix what needs fixing, and prep for sale in one pass.",
+  },
+  {
     img: siding,
     alt: "New horizontal lap siding installed on a residential home",
     title: "Siding Repair and Replacement",
@@ -42,15 +51,6 @@ const services = [
     title: "Covered Patios",
     body:
       "Outdoor space you can actually use in the Oregon rain. Design and build, matched to the look of your house.",
-  },
-  {
-    img: remodelAfter,
-    beforeImg: remodelBefore,
-    afterImg: remodelAfter,
-    alt: "Fully remodeled craftsman home exterior",
-    title: "Exterior Remodeling",
-    body:
-      "Siding, paint, trim, and sometimes deck work combined into one project. Modernize the look of the house, fix what needs fixing, and prep for sale in one pass.",
   },
 ];
 
