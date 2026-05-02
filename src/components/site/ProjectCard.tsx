@@ -20,6 +20,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -27,13 +28,15 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
     if (!node) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+
+        if (entry.isIntersecting) {
+          // Only attempt play when scrolled into view
+          videoRef.current?.play().catch(() => {});
+        } else {
+          videoRef.current?.pause();
+        }
       },
       { threshold: 0.2 }
     );
@@ -60,15 +63,15 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
         }`}
       >
         <AspectRatio ratio={ratio}>
-          {project.media.type === "video" ? (
+          {isVideo ? (
             <video
+              ref={videoRef}
               src={project.media.src}
-              poster={project.media.poster}
+              poster={project.media.type === "video" ? project.media.poster : undefined}
               muted
               loop
-              autoPlay
               playsInline
-              preload="metadata"
+              preload="none"
               className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
             />
           ) : (
