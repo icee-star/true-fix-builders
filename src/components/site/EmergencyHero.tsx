@@ -11,7 +11,7 @@ const EmergencyHero = () => {
           width={1920}
           height={1280}
           className="h-full w-full object-cover"
-          fetchPriority="high"
+          fetchpriority="high"
         />
         <div
           className="absolute inset-0"

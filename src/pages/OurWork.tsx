@@ -20,7 +20,7 @@ const OurWork = () => {
       <Header />
       <main>
         <WorkHero />
-        <RevealSection><ProjectGallery /></RevealSection>
+        <ProjectGallery />
         <RevealSection><WorkClosingCTA /></RevealSection>
       </main>
       <Footer />

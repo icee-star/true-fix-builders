@@ -14,7 +14,7 @@ const WorkHero = () => {
           width={1920}
           height={1080}
           className="h-full w-full object-cover object-center"
-          fetchPriority="high"
+          fetchpriority="high"
         />
         <div
           className="absolute inset-0"

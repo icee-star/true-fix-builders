@@ -15,7 +15,7 @@ const RevealSection = ({ children, delay = 0 }: { children: ReactNode; delay?: n
           observer.unobserve(node);
         }
       },
-      { threshold: 0.08 }
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(node);

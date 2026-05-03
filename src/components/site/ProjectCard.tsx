@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Play } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
@@ -21,7 +21,6 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
@@ -29,10 +28,7 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setVisible(entry.isIntersecting);
-
         if (entry.isIntersecting) {
-          // Only attempt play when scrolled into view
           videoRef.current?.play().catch(() => {});
         } else {
           videoRef.current?.pause();
@@ -51,16 +47,14 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
   return (
     <div
       ref={ref}
-      className="mb-4 break-inside-avoid"
-      style={{ transitionDelay: `${(index % 4) * 60}ms` }}
+      className="mb-4 break-inside-avoid animate-fade-in-up"
+      style={{ animationDelay: `${(index % 8) * 50}ms` }}
     >
       <button
         type="button"
         onClick={onClick}
         aria-label={`View ${project.title} ${isVideo ? "video" : "full size"}`}
-        className={`group relative block w-full cursor-zoom-in overflow-hidden rounded-2xl text-left shadow-lg transition-all duration-500 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-burgundy focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink ${
-          visible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-        }`}
+        className="group relative block w-full cursor-zoom-in overflow-hidden rounded-2xl text-left shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-burgundy focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink"
       >
         <AspectRatio ratio={ratio}>
           {isVideo ? (

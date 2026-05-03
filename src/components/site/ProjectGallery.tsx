@@ -51,11 +51,10 @@ const ProjectGallery = () => {
 
       <Dialog open={!!active} onOpenChange={(open) => !open && setActive(null)}>
         <DialogContent className="max-w-5xl border-none bg-brand-ink/95 p-0 sm:rounded-2xl">
+          <DialogTitle className="sr-only">{active?.title ?? "Project"}</DialogTitle>
+          <DialogDescription className="sr-only">{active?.title ?? "Project details"}</DialogDescription>
           {active && (
-            <>
-              <DialogTitle className="sr-only">{active.title}</DialogTitle>
-              <DialogDescription className="sr-only">{active.title}</DialogDescription>
-              <div className="relative">
+            <div className="relative">
                 {active.media.type === "video" ? (
                   <video
                     src={active.media.src}
@@ -77,8 +76,7 @@ const ProjectGallery = () => {
                     {active.title}
                   </h3>
                 </div>
-              </div>
-            </>
+            </div>
           )}
         </DialogContent>
       </Dialog>
